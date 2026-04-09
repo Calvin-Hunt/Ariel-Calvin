@@ -1,0 +1,174 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">第五届全国助农营销赛项目流程图</text>
+  
+  <!-- 流程节点样式定义 -->
+  <defs>
+    <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="processGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="resultGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 阶段1: 项目启动 -->
+  <g>
+    <!-- 节点 -->
+    <rect x="50" y="60" width="120" height="50" rx="8" fill="url(#nodeGradient)"/>
+    <text x="110" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">项目启动</text>
+    <text x="110" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">团队组建</text>
+  </g>
+  
+  <!-- 阶段2: 市场调研 -->
+  <g>
+    <rect x="220" y="60" width="120" height="50" rx="8" fill="url(#processGradient)"/>
+    <text x="280" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">市场调研</text>
+    <text x="280" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">竞品分析</text>
+  </g>
+  
+  <!-- 阶段3: 产品选择 -->
+  <g>
+    <rect x="390" y="60" width="120" height="50" rx="8" fill="url(#processGradient)"/>
+    <text x="450" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">产品选择</text>
+    <text x="450" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">特色农产品</text>
+  </g>
+  
+  <!-- 阶段4: 策略制定 -->
+  <g>
+    <rect x="560" y="60" width="120" height="50" rx="8" fill="url(#processGradient)"/>
+    <text x="620" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">策略制定</text>
+    <text x="620" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">定价策略</text>
+  </g>
+  
+  <!-- 阶段5: 营销策划 -->
+  <g>
+    <rect x="50" y="150" width="120" height="50" rx="8" fill="url(#processGradient)"/>
+    <text x="110" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">营销策划</text>
+    <text x="110" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">促销活动设计</text>
+  </g>
+  
+  <!-- 阶段6: 线上推广 -->
+  <g>
+    <rect x="220" y="150" width="120" height="50" rx="8" fill="url(#processGradient)"/>
+    <text x="280" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">线上推广</text>
+    <text x="280" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">优惠券发放</text>
+  </g>
+  
+  <!-- 阶段7: 销售执行 -->
+  <g>
+    <rect x="390" y="150" width="120" height="50" rx="8" fill="url(#processGradient)"/>
+    <text x="450" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">销售执行</text>
+    <text x="450" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">渠道管理</text>
+  </g>
+  
+  <!-- 阶段8: 数据监控 -->
+  <g>
+    <rect x="560" y="150" width="120" height="50" rx="8" fill="url(#processGradient)"/>
+    <text x="620" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">数据监控</text>
+    <text x="620" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">销量跟踪</text>
+  </g>
+  
+  <!-- 阶段9: 优化调整 -->
+  <g>
+    <rect x="220" y="240" width="120" height="50" rx="8" fill="url(#processGradient)"/>
+    <text x="280" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">优化调整</text>
+    <text x="280" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">策略优化</text>
+  </g>
+  
+  <!-- 阶段10: 成果总结 -->
+  <g>
+    <rect x="390" y="240" width="120" height="50" rx="8" fill="url(#resultGradient)"/>
+    <text x="450" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">成果总结</text>
+    <text x="450" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">销量提升35%</text>
+  </g>
+  
+  <!-- 箭头连接 -->
+  <g stroke="#64748b" stroke-width="2" fill="none">
+    <!-- 横向连接 -->
+    <line x1="170" y1="85" x2="220" y2="85"/>
+    <line x1="340" y1="85" x2="390" y2="85"/>
+    <line x1="510" y1="85" x2="560" y2="85"/>
+    <line x1="680" y1="85" x2="720" y2="85"/>
+    
+    <!-- 纵向连接 -->
+    <line x1="110" y1="110" x2="110" y2="150"/>
+    <line x1="280" y1="110" x2="280" y2="150"/>
+    <line x1="450" y1="110" x2="450" y2="150"/>
+    <line x1="620" y1="110" x2="620" y2="150"/>
+    
+    <!-- 第二阶段横向连接 -->
+    <line x1="170" y1="175" x2="220" y2="175"/>
+    <line x1="340" y1="175" x2="390" y2="175"/>
+    <line x1="510" y1="175" x2="560" y2="175"/>
+    
+    <!-- 连接到优化调整 -->
+    <line x1="110" y1="200" x2="280" y2="240"/>
+    <line x1="280" y1="200" x2="280" y2="240"/>
+    <line x1="450" y1="200" x2="280" y2="240"/>
+    <line x1="620" y1="200" x2="450" y2="240"/>
+    
+    <!-- 优化到成果 -->
+    <line x1="340" y1="265" x2="390" y2="265"/>
+  </g>
+  
+  <!-- 箭头头部 -->
+  <g fill="#64748b">
+    <polygon points="218,82 228,85 218,88"/>
+    <polygon points="388,82 398,85 388,88"/>
+    <polygon points="558,82 568,85 558,88"/>
+    <polygon points="218,172 228,175 218,178"/>
+    <polygon points="388,172 398,175 388,178"/>
+    <polygon points="558,172 568,175 558,178"/>
+  </g>
+  
+  <!-- 详细说明区域 -->
+  <g>
+    <!-- 市场调研详情 -->
+    <rect x="50" y="320" width="220" height="100" rx="5" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="160" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">市场调研阶段</text>
+    <text x="60" y="360" font-family="Arial, sans-serif" font-size="11" fill="#475569">• 竞品分析报告 × 3份</text>
+    <text x="60" y="375" font-family="Arial, sans-serif" font-size="11" fill="#475569">• 目标用户画像分析</text>
+    <text x="60" y="390" font-family="Arial, sans-serif" font-size="11" fill="#475569">• 市场容量评估</text>
+    <text x="60" y="405" font-family="Arial, sans-serif" font-size="11" fill="#475569">• 价格敏感度测试</text>
+    
+    <!-- 营销策划详情 -->
+    <rect x="290" y="320" width="220" height="100" rx="5" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="400" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">营销策划阶段</text>
+    <text x="300" y="360" font-family="Arial, sans-serif" font-size="11" fill="#475569">• 满减优惠券机制设计</text>
+    <text x="300" y="375" font-family="Arial, sans-serif" font-size="11" fill="#475569">• 社交媒体推广方案</text>
+    <text x="300" y="390" font-family="Arial, sans-serif" font-size="11" fill="#475569">• 渠道合作策略</text>
+    <text x="300" y="405" font-family="Arial, sans-serif" font-size="11" fill="#475569">• 促销活动时间表</text>
+    
+    <!-- 成果展示 -->
+    <rect x="530" y="320" width="220" height="100" rx="5" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="640" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">项目成果</text>
+    <text x="540" y="360" font-family="Arial, sans-serif" font-size="11" fill="#475569">• 农产品销量提升35%</text>
+    <text x="540" y="375" font-family="Arial, sans-serif" font-size="11" fill="#475569">• 品牌知名度显著提升</text>
+    <text x="540" y="390" font-family="Arial, sans-serif" font-size="11" fill="#475569">• 客户复购率增长20%</text>
+    <text x="540" y="405" font-family="Arial, sans-serif" font-size="11" fill="#475569">• 获得优秀团队奖</text>
+  </g>
+  
+  <!-- 时间轴 -->
+  <g>
+    <line x1="50" y1="450" x2="750" y2="450" stroke="#cbd5e1" stroke-width="2"/>
+    <circle cx="110" cy="450" r="4" fill="#3b82f6"/>
+    <circle cx="280" cy="450" r="4" fill="#10b981"/>
+    <circle cx="450" cy="450" r="4" fill="#10b981"/>
+    <circle cx="620" cy="450" r="4" fill="#f59e0b"/>
+    
+    <text x="110" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">2024.05</text>
+    <text x="280" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">2024.07</text>
+    <text x="450" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">2024.09</text>
+    <text x="620" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">2024.10</text>
+  </g>
+</svg>
