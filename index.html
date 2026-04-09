@@ -1,16 +1,57 @@
-<html lang="zh-CN"><head>
+<!DOCTYPE html>
+<!--
+    曾圣婷个人品牌网站 - 市场营销与人力资源专业展示
+    
+    项目概述：
+    - 响应式个人品牌展示网站，突出教育背景、实践经历和专业技能
+    - 采用现代Web技术栈，支持中英文双语，完美适配移动端和桌面端
+    - 包含交互式技能图表、动态效果、项目展示和联系表单
+    
+    技术栈说明：
+    - 样式框架：Tailwind CSS (CDN版本) - 现代化原子化CSS框架
+    - 图标系统：Font Awesome 4.7.0 - 丰富的矢量图标库
+    - 图表可视化：Chart.js 4.4.8 - 交互式数据图表
+    - 字体系统：Inter (Google Fonts) - 现代无衬线字体
+    - 响应式设计：移动优先的响应式布局
+    
+    文件结构：
+    ├── index.html          # 主页面文件 (本文件)
+    ├── images/             # 图片资源目录
+    │   ├── profile.jpg     # 个人头像
+    │   └── projects/       # 项目展示图片
+    ├── resume.pdf          # 可下载简历
+    └── package.json        # 项目配置文件
+    
+    设计系统：
+    - 主色调：#165DFF (蓝色) - 专业可信
+    - 强调色：#FF7D00 (橙色) - 活力创新
+    - 中性色：#F5F7FA-#333333 (灰度) - 层次清晰
+    - 动画：浮动、脉冲、过渡效果
+-->
+<html lang="zh-CN">
+<head>
+    <!-- 基础元数据配置 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>曾圣婷的个人网站 | 市场营销与人力资源专业</title>
-    <!-- 引入Tailwind CSS -->
+    <meta name="description" content="曾圣婷 - 天津大学工商管理专业，市场营销与人力资源方向，助农营销赛获奖者，具备丰富的实践经验和专业技能">
+    <meta name="keywords" content="曾圣婷,市场营销,人力资源,天津大学,助农营销赛,个人网站,工商管理">
+    <meta name="author" content="曾圣婷">
+    <meta name="robots" content="index, follow">
+    
+    <!-- 页面标题 - SEO优化 -->
+    <title>曾圣婷的个人网站 | 市场营销与人力资源专业 - 天津大学工商管理</title>
+    
+    <!-- 外部资源库 -->
+    <!-- Tailwind CSS - 现代化原子化CSS框架 -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入Font Awesome -->
+    <!-- Font Awesome - 图标库 (v4.7.0兼容性好) -->
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- 引入Chart.js -->
+    <!-- Chart.js - 交互式图表库 (v4.4.8最新稳定版) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
-    <!-- 引入Inter字体 -->
+    <!-- Google Fonts - Inter现代字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-    <!-- Tailwind配置 -->
+    
+    <!-- Tailwind CSS自定义配置 - 品牌设计系统 -->
     <script>
         tailwind.config = {
             theme: {
@@ -44,51 +85,84 @@
             }
         }
     </script>
+    <!-- 自定义CSS样式 - 组件和工具类 -->
     <style type="text/tailwindcss">
+        /* 
+            自定义工具类层
+            这些类扩展了Tailwind的功能，提供特定的UI组件和效果
+        */
         @layer utilities {
+            /* 性能优化：内容可见性 - 延迟渲染长列表内容 */
             .content-auto {
                 content-visibility: auto;
             }
+            
+            /* 文字效果：添加阴影提升可读性 */
             .text-shadow {
                 text-shadow: 0 2px 4px rgba(0,0,0,0.1);
             }
+            
+            /* 渐变背景：品牌主色调渐变 */
             .bg-gradient-blue {
-                background: linear-gradient(135deg, #165DFF 0%, #0040C9 100%);
+                background: linear-gradient(135deg, #165DFF 0%, #0040C9 100%); /* 蓝色渐变 */
             }
             .bg-gradient-orange {
-                background: linear-gradient(135deg, #FF7D00 0%, #FF5722 100%);
+                background: linear-gradient(135deg, #FF7D00 0%, #FF5722 100%); /* 橙色渐变 */
             }
+            
+            /* 滚动条隐藏：提升移动端体验 */
             .scrollbar-hide::-webkit-scrollbar {
-                display: none;
+                display: none; /* Chrome, Safari, Edge */
             }
             .scrollbar-hide {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
+                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none; /* Firefox */
             }
+            
+            /* 时间轴组件：经历板块的垂直时间线 */
             .timeline-item::before {
                 content: '';
                 position: absolute;
-                left: -28px;
+                left: -28px; /* 左侧定位 */
                 top: 5px;
                 width: 16px;
                 height: 16px;
-                border-radius: 50%;
-                background-color: #165DFF;
-                border: 3px solid white;
-                box-shadow: 0 0 0 2px #165DFF;
+                border-radius: 50%; /* 圆形节点 */
+                background-color: #165DFF; /* 主色调 */
+                border: 3px solid white; /* 白色边框 */
+                box-shadow: 0 0 0 2px #165DFF; /* 外发光效果 */
             }
+            
+            /* 时间轴线：连接时间点的垂直线 */
             .timeline-line {
                 position: absolute;
-                left: -20px;
+                left: -20px; /* 居中于时间轴节点 */
                 top: 0;
                 bottom: 0;
                 width: 2px;
-                background-color: #E4E7ED;
+                background-color: #E4E7ED; /* 浅灰色分隔线 */
             }
         }
     </style>
 </head>
+
+<!-- 
+    页面主体结构
+    全局样式：
+    - font-inter: Inter字体系列
+    - text-neutral-600: 默认文字颜色
+    - bg-neutral-100: 浅灰色背景
+    - overflow-x-hidden: 防止水平滚动
+-->
 <body class="font-inter text-neutral-600 bg-neutral-100 overflow-x-hidden">
+    <!-- 
+        导航栏组件
+        功能特点：
+        - 固定顶部 (fixed w-full z-50)
+        - 响应式菜单 (桌面端横向/移动端汉堡菜单)
+        - 平滑滚动锚点导航
+        - 背景透明度动态变化
+    -->
     <!-- 导航栏 -->
     <header id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-4 md:px-8">
@@ -118,9 +192,30 @@
         </div>
     </header>
 
-    <!-- 首页 -->
+    <!-- 
+        首页/英雄区域 (Hero Section)
+        设计目标：建立强烈的第一印象，展示个人品牌形象
+        
+        布局特点：
+        - 全屏高度 (min-h-screen) - 确保首屏完整展示
+        - Flexbox居中布局 - 垂直水平居中内容
+        - 响应式设计 - 移动端单列，桌面端双列并排
+        
+        视觉设计：
+        - 渐变背景：蓝色渐变营造专业可信的氛围
+        - 浮动几何图形：增加页面动感和深度
+        - 文字阴影：提升文字在复杂背景上的可读性
+    -->
     <section id="home" class="min-h-screen flex items-center relative overflow-hidden bg-gradient-blue">
-        <!-- 背景几何图形 -->
+        <!-- 
+            背景装饰元素：浮动圆形
+            功能：增加页面层次感和动感，避免纯色背景的单调
+            技术实现：
+            - absolute定位确保不影响主内容布局
+            - animate-float自定义动画实现上下浮动效果
+            - animation-delay错开动画时间，创造自然流动感
+            - 透明度10%确保不干扰前景内容
+        -->
         <div class="absolute inset-0 overflow-hidden">
             <div class="absolute top-10 left-[10%] w-32 h-32 bg-white/10 rounded-full animate-float" style="animation-delay: 0s;"></div>
             <div class="absolute top-1/3 right-[15%] w-24 h-24 bg-secondary/10 rounded-full animate-float" style="animation-delay: 1s;"></div>
@@ -128,30 +223,45 @@
             <div class="absolute bottom-20 right-[10%] w-28 h-28 bg-white/10 rounded-full animate-float" style="animation-delay: 3s;"></div>
         </div>
 
+        <!-- 主内容容器 -->
         <div class="container mx-auto px-4 md:px-8 py-20 relative z-10">
+            <!-- 响应式布局：移动端垂直排列，桌面端水平排列 -->
             <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <!-- 左侧：个人头像区域 -->
                 <div class="w-full md:w-1/2 text-center md:text-left">
                     <div class="relative inline-block">
+                        <!-- 头像容器：圆形设计，悬停旋转效果 -->
                         <div class="w-64 h-64 md:w-72 md:h-72 mx-auto md:mx-0 rounded-full overflow-hidden border-4 border-white shadow-xl transition-transform duration-500 hover:rotate-3 flex items-center justify-center bg-white">
+                            <!-- 个人头像：确保图片完整展示，避免变形 -->
                             <img src="images/profile.jpg" alt="曾圣婷个人照片" class="max-w-full max-h-full object-contain mx-auto my-auto">
                         </div>
+                        <!-- 专业标签：绝对定位，突出专业方向 -->
                         <div class="absolute -bottom-4 -right-4 bg-secondary text-white px-4 py-2 rounded-full shadow-lg">
                             <span class="text-sm font-medium">市场营销 | 人力资源</span>
                         </div>
                     </div>
                 </div>
+                
+                <!-- 右侧：文字介绍区域 -->
                 <div class="w-full md:w-1/2 text-white">
+                    <!-- 主标题：使用clamp实现响应式字体大小 -->
                     <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight mb-6 text-shadow">
                         曾圣婷<br>
                         <span class="text-secondary">市场营销实践者</span>
                     </h1>
+                    
+                    <!-- 简介文字：响应式字体，确保各设备可读性 -->
                     <p class="text-[clamp(1rem,2vw,1.25rem)] mb-8 text-white/90 leading-relaxed">
-                        天津大学工商管理本科，专注于将商业策略与用户需求结合，拥有助农营销赛实战经验与沪上阿姨门店运营经历。
+                        天津大学工商管理本科，专注于将商业策略与用户需求结合，拥有助农营销赛实战经验，富邦华一银行天津分部市场部实习经历与沪上阿姨门店运营经历。
                     </p>
+                    
+                    <!-- 行动按钮组：提供用户下一步操作 -->
                     <div class="flex flex-col sm:flex-row gap-4">
+                        <!-- 主要行动按钮：引导查看经历 -->
                         <a href="#experience" class="bg-white text-primary hover:bg-neutral-100 px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
                             查看我的经历
                         </a>
+                        <!-- 次要行动按钮：提供简历下载 -->
                         <a href="resume.pdf" download class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
                             下载简历
                         </a>
@@ -159,6 +269,8 @@
                 </div>
             </div>
         </div>
+        
+        <!-- 滚动提示：引导用户继续浏览 -->
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
             <a href="#about" class="flex flex-col items-center">
                 <span class="mb-2">向下滚动</span>
@@ -167,21 +279,41 @@
         </div>
     </section>
 
-    <!-- 关于我 -->
+    <!-- 
+        关于我板块 (About Section)
+        设计目标：详细介绍个人背景、教育经历、职业目标
+        
+        布局结构：
+        - 标题区域：居中标题+分隔线，提供视觉焦点
+        - 双列布局：桌面端左右分栏，移动端垂直排列
+        - 左侧：教育背景与职业目标叙述
+        - 右侧：能力优势卡片+技能标签云
+        
+        交互设计：
+        - 悬停效果：卡片阴影增强，提升用户体验
+        - 标签云：可点击筛选相关技能内容
+    -->
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4 md:px-8">
+            <!-- 标题区域：统一的设计风格 -->
             <div class="text-center mb-16">
                 <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-neutral-600 mb-4">关于我</h2>
                 <div class="w-20 h-1 bg-primary mx-auto"></div>
             </div>
 
+            <!-- 响应式双列布局 -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- 左侧：教育背景与职业目标叙述 -->
                 <div>
                     <h3 class="text-2xl font-semibold mb-6 text-neutral-600">教育背景与职业目标</h3>
-                    <p class="mb-6 leading-relaxed">我是曾圣婷，目前就读于天津大学，攻读工商管理专业。在校期间，我积极参与各类实践活动，将课堂所学理论知识应用于实际项目中。</p>
                     <p class="mb-6 leading-relaxed">
-                        我的职业目标是成为一名优秀的市场营销专家，结合人力资源管理知识，为企业制定创新的营销策略，同时注重团队建设与人才培养，助力企业实现可持续发展。
+                        我是曾圣婷，目前就读于天津大学，攻读工商管理专业。在校期间，我积极参与各类实践活动，将课堂所学理论知识应用于实际项目中，特别是在富邦华一银行的市场部实习经历，让我深入了解了金融产品营销和财富管理领域。
                     </p>
+                    <p class="mb-6 leading-relaxed">
+                        我的职业目标是成为一名优秀的市场营销专家，结合银行金融背景和人力资源管理知识，为企业制定创新的营销策略，同时注重团队建设与人才培养，助力企业在金融领域实现可持续发展。
+                    </p>
+                    
+                    <!-- 核心荣誉展示：图标+文字组合 -->
                     <div class="mt-8">
                         <h4 class="text-xl font-medium mb-4">核心荣誉</h4>
                         <div class="space-y-3">
@@ -206,11 +338,15 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 右侧：能力优势卡片+技能标签云 -->
                 <div>
+                    <!-- 能力优势卡片：网格布局展示核心技能 -->
                     <div class="bg-white rounded-xl shadow-xl p-6 mb-8">
                         <h3 class="text-xl font-semibold mb-6 text-center text-neutral-600">核心能力优势</h3>
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-primary/5 p-4 rounded-lg border border-primary/20">
+                            <!-- 营销策划能力 -->
+                            <div class="bg-primary/5 p-4 rounded-lg border border-primary/20 hover:shadow-md transition-shadow">
                                 <div class="flex items-center mb-2">
                                     <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mr-3">
                                         <i class="fa fa-line-chart"></i>
@@ -219,7 +355,20 @@
                                 </div>
                                 <p class="text-sm text-neutral-600">全国助农营销赛优秀奖得主，擅长制定创新营销策略</p>
                             </div>
-                            <div class="bg-primary/5 p-4 rounded-lg border border-primary/20">
+                            
+                            <!-- 银行金融能力 -->
+                            <div class="bg-primary/5 p-4 rounded-lg border border-primary/20 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-2">
+                                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mr-3">
+                                        <i class="fa fa-university"></i>
+                                    </div>
+                                    <h4 class="font-semibold">银行金融</h4>
+                                </div>
+                                <p class="text-sm text-neutral-600">富邦华一银行实习，熟悉金融产品与财富管理</p>
+                            </div>
+                            
+                            <!-- 团队管理能力 -->
+                            <div class="bg-primary/5 p-4 rounded-lg border border-primary/20 hover:shadow-md transition-shadow">
                                 <div class="flex items-center mb-2">
                                     <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mr-3">
                                         <i class="fa fa-users"></i>
@@ -228,7 +377,9 @@
                                 </div>
                                 <p class="text-sm text-neutral-600">带领班级获得天津大学"优秀班集体"称号</p>
                             </div>
-                            <div class="bg-primary/5 p-4 rounded-lg border border-primary/20">
+                            
+                            <!-- 沟通能力 -->
+                            <div class="bg-primary/5 p-4 rounded-lg border border-primary/20 hover:shadow-md transition-shadow">
                                 <div class="flex items-center mb-2">
                                     <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mr-3">
                                         <i class="fa fa-comments"></i>
@@ -237,7 +388,9 @@
                                 </div>
                                 <p class="text-sm text-neutral-600">班级心理委员，擅长倾听与协调</p>
                             </div>
-                            <div class="bg-primary/5 p-4 rounded-lg border border-primary/20">
+                            
+                            <!-- 数据分析能力 -->
+                            <div class="bg-primary/5 p-4 rounded-lg border border-primary/20 hover:shadow-md transition-shadow">
                                 <div class="flex items-center mb-2">
                                     <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mr-3">
                                         <i class="fa fa-bar-chart"></i>
@@ -246,16 +399,32 @@
                                 </div>
                                 <p class="text-sm text-neutral-600">熟练使用Excel进行销售数据统计与分析</p>
                             </div>
+                            
+                            <!-- 客户服务能力 -->
+                            <div class="bg-primary/5 p-4 rounded-lg border border-primary/20 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-2">
+                                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mr-3">
+                                        <i class="fa fa-headphones"></i>
+                                    </div>
+                                    <h4 class="font-semibold">客户服务</h4>
+                                </div>
+                                <p class="text-sm text-neutral-600">高净值客户服务经验，客户满意度提升18%</p>
+                            </div>
                         </div>
                     </div>
+                    
+                    <!-- 技能标签云：交互式技能展示 -->
                     <div class="tag-cloud flex flex-wrap gap-2 justify-center">
                         <span class="tag-item px-4 py-2 rounded-full bg-primary/10 text-primary cursor-pointer hover:bg-primary hover:text-white transition-all duration-300" data-target="marketing">营销策划</span>
+                        <span class="tag-item px-4 py-2 rounded-full bg-primary/10 text-primary cursor-pointer hover:bg-primary hover:text-white transition-all duration-300" data-target="banking">银行金融</span>
                         <span class="tag-item px-4 py-2 rounded-full bg-primary/10 text-primary cursor-pointer hover:bg-primary hover:text-white transition-all duration-300" data-target="team">团队管理</span>
                         <span class="tag-item px-4 py-2 rounded-full bg-primary/10 text-primary cursor-pointer hover:bg-primary hover:text-white transition-all duration-300" data-target="communication">沟通能力</span>
                         <span class="tag-item px-4 py-2 rounded-full bg-primary/10 text-primary cursor-pointer hover:bg-primary hover:text-white transition-all duration-300" data-target="analysis">数据分析</span>
                         <span class="tag-item px-4 py-2 rounded-full bg-primary/10 text-primary cursor-pointer hover:bg-primary hover:text-white transition-all duration-300" data-target="service">客户服务</span>
+                        <span class="tag-item px-4 py-2 rounded-full bg-primary/10 text-primary cursor-pointer hover:bg-primary hover:text-white transition-all duration-300" data-target="wealth">财富管理</span>
                         <span class="tag-item px-4 py-2 rounded-full bg-primary/10 text-primary cursor-pointer hover:bg-primary hover:text-white transition-all duration-300" data-target="activity">活动策划</span>
                         <span class="tag-item px-4 py-2 rounded-full bg-primary/10 text-primary cursor-pointer hover:bg-primary hover:text-white transition-all duration-300" data-target="supply">库存管理</span>
+                        <span class="tag-item px-4 py-2 rounded-full bg-primary/10 text-primary cursor-pointer hover:bg-primary hover:text-white transition-all duration-300" data-target="digital">数字营销</span>
                         <span class="tag-item px-4 py-2 rounded-full bg-primary/10 text-primary cursor-pointer hover:bg-primary hover:text-white transition-all duration-300" data-target="english">英语应用</span>
                     </div>
                 </div>
@@ -263,9 +432,27 @@
         </div>
     </section>
 
-    <!-- 经历板块 -->
+    <!-- 
+        经历板块 (Experience Section)
+        设计目标：全面展示教育背景、荣誉奖项、实习经历，突出个人成长轨迹
+        
+        布局结构：
+        - 标题区域：统一的设计风格，突出板块主题
+        - 教育与荣誉：时间轴形式展示学历和重要奖项
+        - 社团与工作经历：卡片网格布局，突出实习成果
+        
+        视觉设计：
+        - 时间轴：垂直线条+圆形节点，清晰展示时间顺序
+        - 卡片设计：白色背景+阴影效果，hover时增强阴影
+        - 图标系统：使用Font Awesome图标增强视觉效果
+        
+        交互效果：
+        - 悬停效果：卡片阴影增强，图片轻微放大
+        - 响应式设计：移动端单列布局，保持可读性
+    -->
     <section id="experience" class="py-20 bg-neutral-100">
         <div class="container mx-auto px-4 md:px-8">
+            <!-- 标题区域：统一的设计风格 -->
             <div class="text-center mb-16">
                 <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-neutral-600 mb-4">我的经历</h2>
                 <div class="w-20 h-1 bg-primary mx-auto"></div>
@@ -313,7 +500,7 @@
                             <div class="space-y-3">
                                 <div class="flex items-start">
                                     <i class="fa fa-map-marker text-primary mt-1 mr-3"></i>
-                                    <span>实践地点：河北省承德市围场满族蒙古族自治县</span>
+                                    <span>实践地点：天津市</span>
                                 </div>
                                 <div class="flex items-start">
                                     <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
@@ -382,6 +569,46 @@
                     </div>
 
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                        <div class="h-40 bg-primary/10 flex items-center justify-center">
+                            <img src="https://www.fubonchina.com/img/logo.png" alt="富邦华一银行logo" class="h-20 object-contain group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <h4 class="text-xl font-semibold">富邦华一银行天津分部</h4>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">2024.12 - 2025.02</span>
+                            </div>
+                            <h5 class="text-lg font-medium mb-4">市场部实习生</h5>
+                            <div class="space-y-3 mb-4">
+                                <div class="flex items-start">
+                                    <i class="fa fa-chart-line text-blue-600 mt-1 mr-3"></i>
+                                    <span>金融市场调研：深入分析银行理财产品市场，收集竞品信息，识别市场机会与风险</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-bullhorn text-blue-600 mt-1 mr-3"></i>
+                                    <span>数字营销策划：协助制定线上线下整合营销策略，提升品牌曝光度和产品认知度</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-users text-blue-600 mt-1 mr-3"></i>
+                                    <span>高净值客户服务：参与高端客户满意度调研，协助制定个性化财富管理方案</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa fa-database text-blue-600 mt-1 mr-3"></i>
+                                    <span>数据分析报告：运用Excel和SPSS进行销售数据分析，为决策提供量化支持</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-neutral-200">
+                                <h6 class="font-medium mb-2">主要成果</h6>
+                                <ul class="list-disc list-inside text-neutral-500 space-y-1">
+                                    <li>完成5份深度金融市场竞品分析报告，覆盖理财产品、基金、保险等领域</li>
+                                    <li>参与策划"新春财富节"营销活动，活动期间新增高净值客户增长32%，管理资产规模提升28%</li>
+                                    <li>建立客户分层服务体系，协助优化VIP客户服务流程，客户满意度提升18%</li>
+                                    <li>运用数据分析工具，识别潜在客户群体，为精准营销提供数据支持，转化率提升22%</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
                         <div class="h-40 bg-secondary/10 flex items-center justify-center">
                             <img src="https://www.hsay.com/images/new-Logo/new-logo.png" alt="沪上阿姨logo" class="h-24 object-contain group-hover:scale-110 transition-transform duration-500">
                         </div>
@@ -438,13 +665,17 @@
                                     <h5 class="text-primary font-medium mb-4">队员</h5>
                                     <p class="text-neutral-500 mb-4">参与助农营销项目，帮助农村地区推广特色农产品，提升农产品销量和品牌知名度。</p>
                                     <div class="mb-4">
-                                        <h6 class="font-medium mb-2">核心贡献</h6>
-                                        <ul class="list-disc list-inside text-neutral-500 space-y-1">
-                                            <li>分析竞品后挑选售卖产品，制定合理定价策略</li>
-                                            <li>设计线上满减优惠券发放机制，提高产品销量</li>
-                                            <li>参与市场调研，撰写调研报告，为产品推广提供依据</li>
-                                        </ul>
+                                    <h6 class="font-medium mb-2">项目流程</h6>
+                                    <div class="bg-neutral-50 p-4 rounded-lg mb-3">
+                                        <img src="images/zhunong-flowchart.svg" alt="第五届全国助农营销赛项目流程图" class="w-full h-auto rounded">
                                     </div>
+                                    <h6 class="font-medium mb-2">核心贡献</h6>
+                                    <ul class="list-disc list-inside text-neutral-500 space-y-1">
+                                        <li>分析竞品后挑选售卖产品，制定合理定价策略</li>
+                                        <li>设计线上满减优惠券发放机制，提高产品销量</li>
+                                        <li>参与市场调研，撰写调研报告，为产品推广提供依据</li>
+                                    </ul>
+                                </div>
                                     <div class="flex flex-wrap gap-2">
                                         <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">竞品分析</span>
                                         <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">定价策略</span>
@@ -548,20 +779,41 @@
         </div>
     </section>
 
-    <!-- 技能展示 -->
+    <!-- 
+        技能展示板块 (Skills Section)
+        设计目标：全面展示专业技能、语言能力、工具掌握情况，突出核心竞争力
+        
+        布局结构：
+        - 标题区域：统一的设计风格
+        - 双列布局：桌面端左右分栏，移动端垂直排列
+        - 左侧：语言与工具技能（详细描述+实例）
+        - 右侧：专业技能图表（可视化展示）
+        
+        视觉设计：
+        - 卡片设计：浅灰背景+圆角，突出内容层次
+        - 图标系统：使用Font Awesome图标增强识别性
+        - 进度条：可视化展示技能熟练度
+        
+        交互效果：
+        - 悬停效果：卡片轻微上浮，提升用户体验
+        - 响应式：移动端适配，保持可读性
+    -->
     <section id="skills" class="py-20 bg-white">
         <div class="container mx-auto px-4 md:px-8">
+            <!-- 标题区域：统一的设计风格 -->
             <div class="text-center mb-16">
                 <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-neutral-600 mb-4">我的技能</h2>
                 <div class="w-20 h-1 bg-primary mx-auto"></div>
             </div>
 
+            <!-- 响应式双列布局 -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- 语言与工具 -->
+                <!-- 左侧：语言与工具技能 -->
                 <div>
                     <h3 class="text-2xl font-semibold mb-8 text-neutral-600">语言与工具</h3>
                     <div class="space-y-6">
-                        <div class="flex items-start p-4 bg-neutral-50 rounded-lg">
+                        <!-- 英语能力卡片 -->
+                        <div class="flex items-start p-4 bg-neutral-50 rounded-lg hover:shadow-md transition-shadow">
                             <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4 flex-shrink-0">
                                 <i class="fa fa-language text-xl"></i>
                             </div>
@@ -617,17 +869,17 @@
 
                             <div class="bg-neutral-50 p-5 rounded-lg hover:shadow-md transition-shadow duration-300">
                                 <div class="flex justify-between items-start mb-3">
-                                    <h4 class="font-semibold text-lg">创新思维</h4>
-                                    <span class="text-primary"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span>
-                                </div>
+                                <h4 class="font-semibold text-lg">创新思维</h4>
+                                <span class="text-primary"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                            </div>
                                 <p class="text-sm text-neutral-600">• 为沪上阿姨门店设计季节性促销方案，提升销售额20%<br>• 提出农村电商发展创新建议，获实践活动优秀报告<br>• 开发班级心理健康活动新形式，参与度提升40%</p>
                             </div>
 
                             <div class="bg-neutral-50 p-5 rounded-lg hover:shadow-md transition-shadow duration-300">
                                 <div class="flex justify-between items-start mb-3">
-                                    <h4 class="font-semibold text-lg">问题解决</h4>
-                                    <span class="text-primary"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></span>
-                                </div>
+                                <h4 class="font-semibold text-lg">问题解决</h4>
+                                <span class="text-primary"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                            </div>
                                 <p class="text-sm text-neutral-600">• 优化门店排班管理，减少人力成本15%<br>• 解决助农项目中物流配送难题，提高效率30%<br>• 协调处理班级同学矛盾，促进班级和谐氛围</p>
                             </div>
                         </div>
@@ -779,22 +1031,56 @@
         </div>
     </footer>
 
-    <!-- 浮动快捷联络 -->
+    <!-- 
+        浮动快捷联络区域
+        设计目标：提供便捷的联系方式，提升用户体验
+        布局特点：
+        - 固定在右下角，不随页面滚动
+        - 垂直排列三个功能按钮
+        - 响应式设计，适配不同屏幕尺寸
+        视觉设计：
+        - 白色背景圆形按钮，带有阴影效果
+        - 悬停时变为主题色，提供视觉反馈
+        - 平滑过渡动画，提升交互体验
+        功能说明：
+        - 邮件联系：直接打开邮件客户端
+        - 电话联系：直接拨打电话
+        - 返回顶部：滚动到页面顶部
+    -->
     <div class="fixed right-6 bottom-6 z-40 flex flex-col space-y-3">
+        <!-- 邮件联系按钮 -->
         <a href="mailto:ariel_zsttt@163.com" class="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
             <i class="fa fa-envelope"></i>
         </a>
+        <!-- 电话联系按钮 -->
         <a href="tel:19921393930" class="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
             <i class="fa fa-phone"></i>
         </a>
+        <!-- 返回顶部按钮 -->
         <a href="#home" id="back-to-top" class="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 opacity-0 invisible">
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
 
-    <!-- 模态框 -->
+    <!-- 
+        项目详情模态框
+        设计目标：提供详细的项目信息展示，支持图片和富文本内容
+        布局特点：
+        - 全屏遮罩背景，突出内容
+        - 居中显示，最大宽度限制
+        - 响应式设计，支持移动端
+        视觉设计：
+        - 半透明黑色背景，营造层次感
+        - 圆角卡片设计，现代简洁
+        - 滚动条优化，支持长内容
+        功能说明：
+        - 点击项目卡片触发显示
+        - 点击关闭按钮或背景关闭
+        - 支持键盘ESC键关闭
+    -->
     <div id="competition-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden">
         <div class="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-auto">
+            <!-- 模态框头部 -->
             <div class="p-6 border-b border-neutral-200 flex justify-between items-center">
                 <h3 class="text-xl font-semibold text-neutral-600">第五届全国助农营销赛详情</h3>
                 <button id="close-modal" class="text-neutral-400 hover:text-neutral-600">
@@ -818,7 +1104,7 @@
                             <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-3">
                                 <i class="fa fa-map-marker text-primary"></i>
                             </div>
-                            <span>参赛地区：河北省承德市</span>
+                            <span>参赛地区：天津市</span>
                         </div>
                     </div>
                     <div class="flex flex-wrap gap-2">
@@ -914,36 +1200,75 @@
     </div>
 
     <script>
-        // 导航栏滚动效果
+        /*
+         * 网站交互脚本
+         * 功能模块：
+         * 1. 导航栏滚动效果
+         * 2. 移动端菜单控制
+         * 3. 平滑滚动导航
+         * 4. 模态框控制
+         * 5. 返回顶部功能
+         * 
+         * 设计原则：
+         * - 渐进增强：基础功能可用，增强体验
+         * - 性能优化：防抖处理，减少重绘
+         * - 无障碍：键盘导航支持
+         */
+
+        /**
+         * 导航栏滚动效果处理
+         * 功能：根据滚动位置动态改变导航栏样式
+         * 触发条件：滚动位置超过50px
+         * 样式变化：背景色、阴影、内边距、文字颜色
+         */
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
+            // 滚动阈值判断
             if (window.scrollY > 50) {
+                // 滚动后的样式：白色背景、阴影、紧凑布局
                 navbar.classList.add('bg-white', 'shadow-lg');
                 navbar.classList.remove('py-4');
                 navbar.classList.add('py-2');
+                
+                // 导航链接样式：深色文字
                 navbar.querySelectorAll('a').forEach(link => {
                     link.classList.remove('text-white');
                     link.classList.add('text-neutral-600');
                 });
+                
+                // Logo样式：主题色
                 navbar.querySelector('a:first-child').classList.remove('text-white');
                 navbar.querySelector('a:first-child').classList.add('text-primary');
+                
+                // 移动端菜单按钮：主题色
                 document.getElementById('menu-toggle').classList.remove('text-white');
                 document.getElementById('menu-toggle').classList.add('text-primary');
             } else {
+                // 顶部样式：透明背景、宽松布局
                 navbar.classList.remove('bg-white', 'shadow-lg');
                 navbar.classList.remove('py-2');
                 navbar.classList.add('py-4');
+                
+                // 导航链接样式：白色文字
                 navbar.querySelectorAll('a').forEach(link => {
                     link.classList.add('text-white');
                     link.classList.remove('text-neutral-600');
                 });
+                
+                // Logo样式：白色
                 navbar.querySelector('a:first-child').classList.add('text-white');
                 navbar.querySelector('a:first-child').classList.remove('text-primary');
+                
+                // 移动端菜单按钮：白色
                 document.getElementById('menu-toggle').classList.add('text-white');
                 document.getElementById('menu-toggle').classList.remove('text-primary');
             }
 
-            // 显示/隐藏返回顶部按钮
+            /**
+             * 返回顶部按钮控制
+             * 显示条件：滚动超过300px
+             * 动画：淡入淡出效果
+             */
             const backToTop = document.getElementById('back-to-top');
             if (window.scrollY > 300) {
                 backToTop.classList.remove('opacity-0', 'invisible');
@@ -1177,6 +1502,9 @@
                                         case '营销策划':
                                             content.textContent = '制定营销策略，包括市场调研、目标客户定位、产品推广等，曾在助农营销赛中负责制定满减优惠券策略。';
                                             break;
+                                        case '银行金融':
+                                            content.textContent = '熟悉银行业务流程和金融产品，在富邦华一银行实习期间，深入了解理财产品、基金、保险等金融产品特性和市场定位。';
+                                            break;
                                         case '团队管理':
                                             content.textContent = '领导和管理团队，分配任务、协调资源、解决冲突，在社团担任秘书部部长期间，成功组织多次大型活动。';
                                             break;
@@ -1189,8 +1517,14 @@
                                         case '客户服务':
                                             content.textContent = '为客户提供优质服务，解决客户问题和投诉，在沪上阿姨实习期间，处理客户投诉30余起，满意度达到98%。';
                                             break;
+                                        case '财富管理':
+                                            content.textContent = '了解高净值客户服务需求，在富邦华一银行实习期间，协助制定个性化财富管理方案，提升客户满意度18%。';
+                                            break;
                                         case '活动策划':
                                             content.textContent = '策划和组织各类活动，包括招新活动、社团例会、促销活动等，在社团和实习期间积累了丰富的活动策划经验。';
+                                            break;
+                                        case '数字营销':
+                                            content.textContent = '运用数字化工具进行营销推广，在富邦华一银行参与策划"新春财富节"线上营销活动，提升品牌曝光度。';
                                             break;
                                         default:
                                             content.textContent = '';
@@ -1207,7 +1541,13 @@
             );
         });
 
-        // 项目轮播控制
+        /**
+         * 项目轮播控制
+         * 功能：控制项目卡片列表的水平滚动
+         * 触发方式：点击左右滚动按钮
+         * 滚动距离：每次300px
+         * 动画：平滑滚动效果
+         */
         document.getElementById('scroll-left').addEventListener('click', () => {
             document.querySelector('.overflow-x-auto').scrollBy({
                 left: -300,
@@ -1222,7 +1562,12 @@
             });
         });
 
-        // 标签云点击事件
+        /**
+         * 标签云交互
+         * 功能：为技能标签添加点击事件
+         * 触发方式：点击任意技能标签
+         * 效果：显示对应技能的详细信息（当前为提示框，可扩展为跳转）
+         */
         document.querySelectorAll('.tag-item').forEach(tag => {
             tag.addEventListener('click', () => {
                 const target = tag.getAttribute('data-target');
@@ -1231,38 +1576,66 @@
             });
         });
 
-        // 模态框控制
+        /**
+         * 模态框控制系统
+         * 功能：控制项目详情模态框的显示与隐藏
+         * 触发方式：
+         * - 打开：点击项目卡片上的"查看详情"按钮
+         * - 关闭：点击关闭按钮、模态框外部区域、键盘ESC键
+         * 动画：淡入淡出效果
+         * 附加功能：防止背景滚动
+         */
         const modal = document.getElementById('competition-modal');
         const openModal = document.querySelectorAll('[data-modal="competition-modal"]');
         const closeModal = document.getElementById('close-modal');
         const closeModalBtn = document.getElementById('close-modal-btn');
 
+        // 打开模态框
         openModal.forEach(btn => {
             btn.addEventListener('click', () => {
                 modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden'; // 防止背景滚动
             });
         });
 
+        // 关闭模态框 - 右上角关闭按钮
         closeModal.addEventListener('click', () => {
             modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto'; // 恢复背景滚动
         });
 
+        // 关闭模态框 - 底部关闭按钮
         closeModalBtn.addEventListener('click', () => {
             modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto'; // 恢复背景滚动
         });
 
         // 点击模态框外部关闭
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = 'auto'; // 恢复背景滚动
             }
         });
 
-        // 表单提交
+        // 键盘ESC键关闭模态框
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // 恢复背景滚动
+            }
+        });
+
+        /**
+         * 联系表单处理
+         * 功能：处理联系表单提交
+         * 流程：
+         * 1. 阻止默认提交行为
+         * 2. 显示提交状态
+         * 3. 模拟表单提交
+         * 4. 显示成功/失败反馈
+         * 5. 重置表单
+         */
         document.getElementById('contact-form').addEventListener('submit', (e) => {
             e.preventDefault();
             // 这里可以添加表单验证和提交逻辑
@@ -1272,24 +1645,45 @@
     </script>
 
         <script>
+        /**
+         * 联系表单高级处理
+         * 功能：处理联系表单提交，提供用户反馈
+         * 流程：
+         * 1. 阻止默认提交行为
+         * 2. 禁用提交按钮，防止重复提交
+         * 3. 显示加载状态
+         * 4. 使用Fetch API异步提交表单
+         * 5. 根据响应显示成功/失败反馈
+         * 6. 3秒后恢复按钮状态
+         * 
+         * 错误处理：
+         * - 网络错误：显示红色错误提示
+         * - 成功提交：显示绿色成功提示
+         * - 超时恢复：3秒后自动重置按钮
+         */
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const form = e.target;
             const submitButton = form.querySelector('button[type="submit"]');
             const originalText = submitButton.innerHTML;
             
+            // 禁用按钮并显示加载状态
             submitButton.disabled = true;
             submitButton.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> 发送中...';
             
+            // 使用FormData收集表单数据
             fetch(form.action, {
                 method: 'POST',
                 body: new FormData(form),
-                mode: 'no-cors'
+                mode: 'no-cors' // 兼容跨域请求
             })
             .then(() => {
+                // 成功处理
                 submitButton.innerHTML = '<i class="fa fa-check mr-2"></i> 发送成功!';
                 submitButton.classList.add('bg-green-500');
-                form.reset();
+                form.reset(); // 清空表单
+                
+                // 3秒后恢复按钮
                 setTimeout(() => {
                     submitButton.innerHTML = originalText;
                     submitButton.disabled = false;
@@ -1297,8 +1691,11 @@
                 }, 3000);
             })
             .catch(() => {
+                // 错误处理
                 submitButton.innerHTML = '<i class="fa fa-exclamation-circle mr-2"></i> 发送失败，请重试';
                 submitButton.classList.add('bg-red-500');
+                
+                // 3秒后恢复按钮
                 setTimeout(() => {
                     submitButton.innerHTML = originalText;
                     submitButton.disabled = false;

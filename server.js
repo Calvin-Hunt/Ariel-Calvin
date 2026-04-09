@@ -1,12 +1,28 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+const compression = require('compression');
+const path = require('path');
 const app = express();
 
 // 中间件配置
+app.use(compression());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// 静态文件服务 - 适配你的项目结构（index.html在根目录）
+app.use(express.static(__dirname, {
+  maxAge: '1d',
+  etag: true,
+  lastModified: true
+}));
+
+// 图片缓存优化（你的images文件夹在根目录）
+app.use('/images', express.static(path.join(__dirname, 'images'), {
+  maxAge: '7d',
+  etag: true
+}));
 
 // 163邮箱SMTP配置
 const transporter = nodemailer.createTransport({
@@ -44,8 +60,10 @@ ${message}`
   }
 });
 
-// 启动服务器
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`服务器运行在 http://localhost:${PORT}`);
+// 【关键修改】启动服务器 - 适配Render环境
+const port = process.env.PORT || 10000;  // Render会自动分配PORT，默认10000
+const host = '0.0.0.0';                   // 必须监听0.0.0.0，否则外网无法访问
+
+app.listen(port, host, () => {
+  console.log(`服务器运行在 http://${host}:${port}`);
 });
