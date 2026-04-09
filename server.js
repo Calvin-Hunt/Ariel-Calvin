@@ -60,8 +60,8 @@ ${message}`
   }
 });
 
-// 【关键修改】启动服务器 - 适配Render环境
-const port = process.env.PORT || 10000;  // Render会自动分配PORT，默认10000
+// 【关键修改】启动服务器 - 适配Vercel环境
+const port = process.env.PORT || 3000;  // Vercel会自动分配PORT，默认3000
 const host = '0.0.0.0';                   // 必须监听0.0.0.0，否则外网无法访问
 
 app.listen(port, host, () => {
