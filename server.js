@@ -24,15 +24,9 @@ app.use('/images', express.static(path.join(__dirname, 'images'), {
   etag: true
 }));
 
-// 163邮箱SMTP配置
-const transporter = nodemailer.createTransport({
-  host: 'smtp.163.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: 'ariel_zsttt@163.com', // 替换为你的163邮箱
-    pass: 'GYnEL7gHRgeeZmXH' // 替换为你的客户端授权码
-  }
+// Vercel 服务端渲染 - 直接返回 index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // 邮件发送接口
@@ -60,10 +54,5 @@ ${message}`
   }
 });
 
-// 【关键修改】启动服务器 - 适配Vercel环境
-const port = process.env.PORT || 3000;  // Vercel会自动分配PORT，默认3000
-const host = '0.0.0.0';                   // 必须监听0.0.0.0，否则外网无法访问
-
-app.listen(port, host, () => {
-  console.log(`服务器运行在 http://${host}:${port}`);
-});
+// Vercel 导出
+module.exports = app;
